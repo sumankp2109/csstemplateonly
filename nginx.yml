@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: skycloud.azurecr.io/newappsv1:tappv1
+        image: skycloud.azurecr.io/myapps2:newapps2
         ports:
         - containerPort: 80
 ---
