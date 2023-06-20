@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: pythondockerrepo
+          image: skycloud.azurecr.io/myapps2:newapps2
+          ports:
+            - containerPort: 5001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app-svc
+spec:
+  selector:
+    app: python-app
+  ports:
+    - name: http
+      port: 80
+    - protocol: TCP
+      targetPort: 80
+selector:
+  app: nginx
+  type: LoadBalancer
