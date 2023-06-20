@@ -17,17 +17,4 @@ spec:
         image: skycloud.azurecr.io/myapps2:newapps2
         ports:
         - containerPort: 5000
-# service type loadbalancer       
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-python-app-svc
-spec:
-  selector:
-    app: my-python-app
-  ports:
-    - protocol: TCP
-      port: 5000
-      targetPort: 5000
-  type: LoadBalancer
+
